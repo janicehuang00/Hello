@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meow Meow!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .imgbutton-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            
+        }
+        img {
+            width: 300px;  /* 固定寬度 */
+            height: 300px; /* 固定高度 */
+            object-fit: cover;  /* 保持比例填滿圖片區域 */
+            margin: 10px;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;  /* 隱藏圖片 */
+        }
+
+        img:hover{
+            transform: scale(1.2);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>click the button to hidden the cat</h1>
+
+    <div class="container">
+        <div class="imgbutton-container">
+            <img id="image1" src="cat.jpg" alt="圖片" onclick="toggleImage(1)">
+            <button onclick="toggleImage(1)">show/hidden img1</button>
+        </div>
+        <div class="imgbutton-container">
+            <img id="image2" src="cat2.jpg" alt="圖片" onclick="toggleImage(2)">
+            <button onclick="toggleImage(2)">show/hidden img2</button>
+        </div>
+        <div class="imgbutton-container">
+            <img id="image3" src="cat3.jpg" alt="圖片" onclick="toggleImage(3)">
+            <button onclick="toggleImage(3)">show/hidden img3</button>
+        </div>
+    </div>
+
+
+    <script>
+        function toggleImage(imageNumber) {
+            const image = document.getElementById('image' + imageNumber);
+
+            if (image.classList.contains('hidden')) {
+                image.classList.remove('hidden');
+            } else {
+                image.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
